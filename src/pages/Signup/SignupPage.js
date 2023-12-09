@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import "./signupLogin.css";
+import "./SignupPage.css";
 import { FaFacebook } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
-import { useSignup } from "../hooks/useSignup";
+import { useSignup } from "../../hooks/useSignup";
 
 const SignupPage = () => {
   const [name, setName] = useState("");

@@ -1,13 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import "./signupLogin.css";
+import "./LoginPage.css"
 import { FaFacebook } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
-import { useLogin } from "../hooks/useLogin";
+import { useLogin } from "../../hooks/useLogin";
 
 const LoginPage = () => {
-  const [name, setName] = useState("");
-  const [contact, setContact] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, isLoading } = useLogin();

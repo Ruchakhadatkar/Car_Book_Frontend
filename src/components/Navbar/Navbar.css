@@ -1,0 +1,54 @@
+.nav {
+  display: flex;
+  height: auto;
+  background-color: #fff;
+  padding: 30px 60px;
+}
+.icon {
+  display: flex;
+}
+.appName {
+  padding-left: 18px;
+  line-height: 16px;
+}
+.appName h3 {
+  margin: 0px;
+  font-size: 19px;
+  font-weight: 600;
+}
+.appName p {
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+}
+img.carlogo {
+  /* padding-left: 10px; */
+  width: 80px;
+  height: 60px;
+}
+ul {
+  display: flex;
+  list-style: none;
+  padding: 20px 12rem;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  z-index: 3;
+
+}
+ul li{
+    padding: 0px 15px;
+}
+.signLogin{
+    display: flex;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px 16rem;
+    padding-right: 0px;
+    z-index: 3;
+}
+div a{
+    padding: 0px 20px;
+}
