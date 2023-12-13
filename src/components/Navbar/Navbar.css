@@ -8,7 +8,7 @@
   display: flex;
 }
 .appName {
-  padding-left: 18px;
+  padding-left: 14px;
   line-height: 16px;
 }
 .appName h3 {
@@ -36,19 +36,29 @@ ul {
   padding-bottom: 0px;
   padding-right: 0px;
   z-index: 3;
+}
+ul li {
+  padding: 0px 15px;
+}
+.signLogin {
+  display: flex;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 20px 16rem;
+  padding-right: 0px;
+  z-index: 3;
+}
+div a {
+  padding: 0px 20px;
+}
 
+.ulist {
+  margin-right: auto;
 }
-ul li{
-    padding: 0px 15px;
-}
-.signLogin{
-    display: flex;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 20px 16rem;
-    padding-right: 0px;
-    z-index: 3;
-}
-div a{
-    padding: 0px 20px;
+.logout {
+  border: none;
+  background: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0px;
 }

@@ -49,14 +49,11 @@ const SignupPage = () => {
         value={password}
       />
 
-      <button disabled={isLoading}>Sign up</button>
-      {error && <div className="error">{error}</div>}
-
-      <p>OR</p>
-      <button className="facebook">
-        <FaFacebook className="icon" />
-        <p className="signupwith">Sign up with facebook</p>
+      <button disabled={isLoading} className="signup">
+        Sign up
       </button>
+      {error && <div className="error">{error}</div>}
+      <p>OR</p>
       <button className="google">
         <FaGoogle className="icon" />
         <p className="signupwith">Sign up with google</p>

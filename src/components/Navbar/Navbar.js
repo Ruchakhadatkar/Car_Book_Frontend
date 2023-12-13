@@ -28,18 +28,23 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Vehicle Models</li>
-        <li>Contact</li>
+      <ul className="ulist">
+        {user ? (
+          <>
+            <li>Home</li>
+            <li>About</li>
+            <li>Vehicle Models</li>
+            <li>Contact</li>
+          </>
+        ) : (
+          <></>
+        )}
       </ul>
 
       <div className="signLogin">
         {user && (
           <div>
-            <button onClick={handkeClick}>Log out</button>
+            <button onClick={handkeClick} className="logout">Log out</button>
           </div>
         )}
         {!user && (

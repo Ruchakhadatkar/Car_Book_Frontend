@@ -82,9 +82,9 @@ form .facebook {
   margin: 5px;
 }
 .icon {
-  font-size: 22px;
-  margin-right: 8px;
-  padding-top: 6px;
+  font-size: 20px;
+  margin-right: 1px;
+  margin-top: 6px;
 }
 form .google {
   display: flex;
@@ -93,5 +93,8 @@ form .google {
   margin-bottom: 20px;
 }
 .google .icon {
-  font-size: 20px;
+  font-size: 18px;
+}
+.signup{
+  margin-top: 10px;
 }

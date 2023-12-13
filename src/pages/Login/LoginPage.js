@@ -34,14 +34,14 @@ const LoginPage = () => {
         value={password}
       />
 
-      <button disabled={isLoading}>Login</button>
+      <button disabled={isLoading} className="login">Login</button>
       {error && <div className="error">{error}</div>}
 
       <p>OR</p>
-      <button className="facebook">
+      {/* <button className="facebook">
         <FaFacebook className="icon" />
         <p className="signupwith">Continue with facebook</p>
-      </button>
+      </button> */}
       <button className="google">
         <FaGoogle className="icon" />
         <p className="signupwith">Continue with google</p>

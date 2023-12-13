@@ -1,0 +1,182 @@
+.containerMain {
+  margin-top: 110px;
+  margin-bottom: 120px;
+}
+.containerModel {
+  margin: 0px 50px;
+  padding: 0px;
+  background: linear-gradient(180deg, #f8f8f8 20%, #fff 80%);
+  border-radius: 6px;
+}
+.bookCar {
+  display: block;
+  font-size: 35px;
+  font-weight: 600;
+  padding: 30px 0px;
+  padding-bottom: 4px;
+  padding-left: 33rem;
+  margin-bottom: 6px;
+}
+.modelInfo {
+  display: flex;
+  gap: 16px;
+  background: linear-gradient(180deg, #f8f8f8 20%, #fff 80%);
+  position: relative;
+  border-radius: 6px;
+}
+.carPic {
+  width: 42%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+
+}
+.carPic img {
+  width: 100%;
+  height: 80%;
+  border-radius: 6px;
+  margin-top: 17px;
+  /* padding: auto;
+  margin: auto 0px; */
+}
+.infoForm {
+  width: 56%;
+  height: 100%;
+  padding: 10px 25px;
+  /* padding-right: 0px; */
+}
+
+.pick-drop-location {
+  display: flex;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.pickup {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  padding-right: 0px;
+}
+label {
+  align-items: center;
+  display: flex;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.locationIcon {
+  font-size: 18px;
+  margin-right: 4px;
+  margin-bottom: 2px;
+}
+label p {
+  font-size: 15px;
+  margin-bottom: 2px;
+  margin-top: 1px;
+}
+label b {
+  color: #ff4d30;
+  padding: 2px;
+}
+select {
+  border: 1px solid #ccd7e6;
+  border-radius: 4px;
+  color: #ababab;
+  font-family: Rubik, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  padding: 12px;
+  width: 90%;
+}
+.dropoff {
+  width: 48%;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+}
+.pick-drop-date {
+  display: flex;
+  margin-top: 12px;
+}
+.pickupTime {
+  width: 49%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 22px;
+  padding-right: 0px;
+}
+.calender {
+  font-size: 22px;
+  margin-right: 6px;
+  margin-bottom: 2px;
+  font-weight: 800;
+}
+.infoForm input {
+  border: 1px solid #ccd7e6;
+  border-radius: 4px;
+  color: #ababab;
+  font-family: Rubik, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  padding: 10px;
+  width: 90%;
+  margin: 0px;
+}
+.dropTime {
+  width: 46%;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+}
+.rent {
+  font-weight: 600;
+  text-align: left;
+  display: block;
+  margin: 16px 20px;
+}
+.ret label {
+  margin-bottom: 2px;
+}
+.totalAmount {
+  font-size: 16px;
+  margin-right: 5px;
+}
+.rent p {
+  font-size: 15px;
+  margin: 6px 2px;
+}
+.rent input {
+  display: flex;
+  border: 1px solid #ccd7e6;
+  border-radius: 4px;
+  color: #ababab;
+  font-family: Rubik, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  padding: 10px;
+  width: 43%;
+  margin: 0px;
+}
+
+.cirnformBtn {
+  text-align: center;
+  margin: 36px 45px;
+}
+.crnBtn {
+  text-align: center;
+  background-color: #ff4d30;
+  border: 2px solid #ff4d30;
+  border-radius: 0.3rem;
+  box-shadow: 0 10px 15px 0 rgba(255, 83, 48, 0.35);
+  padding: 4px 23px;
+  transition: all 0.3s;
+  height: 44px;
+  width: 75%;
+  font-weight: 600;
+}

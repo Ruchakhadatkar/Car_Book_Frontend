@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthCotext";
 import useLogout from "../../hooks/useLogout";
-import backGround from "../../assets/backgroundImg.png";
+import backGround from "../../assets/backgroundd.png";
 import "./HomePage.css";
 import carImg from "../../assets/carImg.png";
 import { FaChevronRight } from "react-icons/fa";
@@ -18,9 +18,9 @@ import boxImg3 from "../../assets/boxImg3.png";
 const HomePage = () => {
   
   return (
-    <div className="containerMain">
+    <div className="container_Main">
       <div className="heroSection">
-        <div className="container">
+        <div className="containerHome">
           <img src={backGround} className="background" />
           <div className="heroContent">
             <div className="heroContentText">
