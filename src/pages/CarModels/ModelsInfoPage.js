@@ -4,16 +4,86 @@ import balenoCar from "../../assets/balenoCar.jpg";
 import { FaLocationDot } from "react-icons/fa6";
 import { RiCalendarEventLine } from "react-icons/ri";
 import { FaRupeeSign } from "react-icons/fa";
+import { Link, json, useNavigate, useParams } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthCotext";
 
 const ModelsInfoPage = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const { user } = useAuthContext();
   const [pickupLocation, setPickupLocation] = useState("");
   const [dropoffLocation, setDropoffLocation] = useState("");
   const [pickupDate, setPickupDate] = useState(null);
   const [dropoffDate, setDropoffDate] = useState(null);
   const [totalFair, setTotalFair] = useState(0);
   const [minDate, setMinDate] = useState("");
-  const [fair, setFair] = useState(1000);
+  const [fair, setFair] = useState(0);
   const [dayDifference, setDayDifference] = useState(0);
+
+  const [singleCar, setSingleCar] = useState([]);
+
+  const fetchCarData = async () => {
+    try {
+      if (!user || !user.token) {
+        console.error("User or token is null or undefined");
+        return;
+      }
+
+      const response = await fetch(`http://localhost:5000/api/cars/${id}`, {
+        headers: {
+          authorization: `Bearer ${user.token}`,
+        },
+      });
+
+      const data = await response.json();
+      setSingleCar(data);
+      setFair(data.fair);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const handleBooking = async (e) => {
+    e.preventDefault();
+    if (
+      !pickupDate ||
+      !dropoffDate ||
+      !pickupLocation ||
+      !dropoffLocation ||
+      !totalFair ||
+      !id ||
+      !user
+    ) {
+      return;
+    }
+    const data = {
+      pickLocation: pickupLocation,
+      dropLocation: dropoffLocation,
+      pickDate: pickupDate,
+      dropDate: dropoffDate,
+      totalRent: totalFair,
+      carId: id,
+      userId: user.userId,
+    };
+    console.log(data);
+    const response = await fetch("http://localhost:5000/api/bookingdetail", {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${user.token}`,
+      },
+      body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    const bookingdetail = await response.json();
+    console.log(bookingdetail);
+    navigate("/bookingdetails");
+  };
+
+  useEffect(() => {
+    fetchCarData();
+  }, []);
+
   const createMinDate = () => {
     const date = new Date();
 
@@ -33,8 +103,7 @@ const ModelsInfoPage = () => {
   }, []);
 
   useEffect(() => {
-
-    if(!pickupDate  && !dropoffDate ) return
+    if (!pickupDate && !dropoffDate) return;
     // Convert the date strings to Date objects
     var date1 = new Date(pickupDate);
     var date2 = new Date(dropoffDate);
@@ -57,17 +126,16 @@ const ModelsInfoPage = () => {
       setTotalFair(fair * dayDiff);
     }
   };
-  console.log( fair, dayDifference, totalFair);
+
   return (
     <div className="containerMain">
       <div className="containerModel">
-        <h2 className="bookCar">Book a Car</h2>
+        <h2 className="bookCar">{singleCar.carName}</h2>
         <div className="modelInfo">
           <div className="carPic">
-            <img src={balenoCar} />
+            <img src={singleCar.image} />
           </div>
           <form className="infoForm">
-            {/* <h2>Book a Car</h2> */}
             <div className="pick-drop-location">
               <div className="pickup">
                 <label>
@@ -88,7 +156,6 @@ const ModelsInfoPage = () => {
                   <option value="bangalore">Bangalore</option>
                 </select>
               </div>
-
               <div className="dropoff">
                 <label>
                   <FaLocationDot className="locationIcon" />
@@ -109,7 +176,6 @@ const ModelsInfoPage = () => {
                 </select>
               </div>
             </div>
-
             <div className="pick-drop-date">
               <div className="pickupTime">
                 <label>
@@ -127,7 +193,6 @@ const ModelsInfoPage = () => {
                   min={minDate}
                 />
               </div>
-
               <div className="dropTime">
                 <label>
                   <RiCalendarEventLine className="calender" />
@@ -145,7 +210,6 @@ const ModelsInfoPage = () => {
                 />
               </div>
             </div>
-
             <div className="rent">
               <label>
                 <FaRupeeSign className="totalAmount" />
@@ -153,10 +217,13 @@ const ModelsInfoPage = () => {
                 <b>*</b>
               </label>
               <h4>{totalFair}</h4>
-              {/* <input type="number" placeholder="00" className="amount" /> */}
             </div>
-
-            <div className="cirnformBtn">
+            <div
+              className="cirnformBtn"
+              onClick={(e) => {
+                handleBooking(e);
+              }}
+            >
               <button className="crnBtn">Confirm Booking</button>
             </div>
           </form>

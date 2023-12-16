@@ -6,7 +6,7 @@ import { TbCar } from "react-icons/tb";
 import { FaRupeeSign } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { useAuthContext } from "../../hooks/useAuthCotext";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 
 const ModelsPage = () => {
   const { user } = useAuthContext();
@@ -43,7 +43,6 @@ const ModelsPage = () => {
     <div className="container_vehicle">
       <div className="heading_vehicle">
         <h2>Vehicle Models</h2>
-        <p>Home / Vehicle Models</p>
       </div>
       <div className="models_container">
         {cars.map((car, i) => {
@@ -72,41 +71,17 @@ const ModelsPage = () => {
                 </div>
                 <hr />
                 <div className="bookBtn">
-                  <button>Book Ride</button>
+                  <Link
+                    to={`/models/${car._id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <button>Book Ride</button>
+                  </Link>
                 </div>
               </div>
             </div>
           );
         })}
-
-        {/* <div className="modelCart">
-          <div className="carImg">
-            <img src={balenoCar} className="ImgCar" />
-          </div>
-          <div className="carDetails">
-            <div className="name">
-              <p>Maruti Suzuki Baleno</p>
-            </div>
-            <div className="carType">
-              <p>Manual</p>
-              <p className="oilType">Petrol</p>
-              <p className="seats">4 Seats</p>
-            </div>
-            <hr />
-            <div className="rentDetails">
-              <TbCar className="smallCar" /> <FaRupeeSign className="rupee" />{" "}
-              <p>1500/day</p>
-              <div className="review">
-                <IoStar className="star" />
-                <div className="rating">4/5</div>
-              </div>
-            </div>
-            <hr />
-            <div className="bookBtn">
-              <button>Book Ride</button>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );

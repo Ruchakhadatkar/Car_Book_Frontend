@@ -1,19 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
-
 :root {
-  --primary: #1aac83;
+  --primary: #ff4d30;
   --error: #e7195a;
 }
 body {
-  background: #f1f1f1;
+  background: #fff;
   margin: 0;
   font-family: "Poppins";
 }
-.pages {
+/* .pages {
   max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
-}
+} */
 /* new workout form  */
 label,
 input {
@@ -30,17 +28,17 @@ form input {
 }
 form h3 {
   text-align: center;
-  font-size: 20px;
+  font-size: 21px;
   margin-top: 6px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-weight: 600;
 }
 .login {
-  margin-top: 4px;
-  margin-bottom: ;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 form button {
-  background: var(--primary);
+  /* background: var(--primary); */
   border: 0;
   color: #fff;
   font-family: "Poppins";
@@ -48,9 +46,12 @@ form button {
   cursor: pointer;
   width: 25rem;
   height: 35px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
   margin-top: 10px;
+}
+form .login{
+  background-color: #ff4d30;
 }
 div.error {
   padding: 10px;
@@ -65,8 +66,12 @@ input.error {
 }
 /* /auth forms */
 form.login {
+  border: 1px solid #d5d5d5;
+  border-right: 2px solid #d5d5d5;
+  border-bottom: 3px solid #d5d5d5;
   max-width: 480px;
-  margin: 40px auto;
+  margin: 70px auto;
+  margin-bottom: 50px;
   padding: 20px 40px;
   background: #ffffff;
   border-radius: 4px;
@@ -75,25 +80,33 @@ form p {
   text-align: center;
   font-weight: 600;
   font-size: 15px;
-  margin-top: 12px;
+  margin-top: 8px;
   margin-bottom: 0px;
 }
 
 .signupwith {
   margin: 5px;
+  border-color: black;
 }
 .icon {
   font-size: 20px;
   margin-right: 1px;
   margin-top: 6px;
 }
-form .google {
+.google {
   display: flex;
   justify-content: center;
-  background-color: gray;
   margin-bottom: 20px;
 }
 .google .icon {
   font-size: 16px;
   margin-top: 8px;
+}
+.gooogle {
+  height: 28px;
+  margin-top: 2px;
+}
+form button .google {
+  background-color: white;
+  border: 1px solid black;
 }

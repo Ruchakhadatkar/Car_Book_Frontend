@@ -32,11 +32,13 @@ const HomePage = () => {
                 Rent the car of your dreams. Unbeatable prices, unlimited miles,
                 flexible pick-up options and much more.
               </p>
-              <div className="btnsHome">
+              <div className="btnsHome" >
+                <Link to="/models" style={{ textDecoration: "none" }}>
                 <button className="book">
                   Book Ride
                   <FaRegCheckCircle className="btnIcon" />
                 </button>
+                </Link>
                 <button className="learn">
                   Learn More
                   <FaChevronRight />

@@ -4,8 +4,11 @@ import "./SignupPage.css";
 import { FaFacebook } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { useSignup } from "../../hooks/useSignup";
+import { useNavigate } from "react-router-dom";
+import google from "../../assets/google-icon.png";
 
 const SignupPage = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [email, setEmail] = useState("");
@@ -16,6 +19,7 @@ const SignupPage = () => {
     e.preventDefault();
 
     await signup(name, contact, email, password);
+    navigate("/");
   };
   return (
     <form className="signup" onSubmit={handleSubmit}>
@@ -55,7 +59,7 @@ const SignupPage = () => {
       {error && <div className="error">{error}</div>}
       <p>OR</p>
       <button className="google">
-        <FaGoogle className="icon" />
+        <img src={google} className="gooogle" />
         <p className="signupwith">Sign up with google</p>
       </button>
     </form>

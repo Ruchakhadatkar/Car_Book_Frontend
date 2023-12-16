@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthCotext";
 import useLogout from "../../hooks/useLogout";
 import "./Navbar.css";
@@ -8,9 +8,11 @@ import carlogo from "../../assets/carlogo.png";
 const Navbar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
+  const navigate = useNavigate()
 
   const handkeClick = () => {
     logout();
+    navigate("/login")
   };
 
   return (
@@ -31,10 +33,23 @@ const Navbar = () => {
       <ul className="ulist">
         {user ? (
           <>
-            <li>Home</li>
-            <li>About</li>
-            <li>Vehicle Models</li>
-            <li>Contact</li>
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+              <li>Home</li>
+            </Link>
+            {/* <li>About</li> */}
+            <Link
+              to="/models"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <li>Vehicle Models</li>
+            </Link>
+            <li><a href="/#contact" style={{ textDecoration: "none", color: "black" }}>Contact</a></li>
+            <Link
+              to="/bookingdetails"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <li>Booked Cars</li>
+            </Link>
           </>
         ) : (
           <></>
@@ -44,7 +59,9 @@ const Navbar = () => {
       <div className="signLogin">
         {user && (
           <div>
-            <button onClick={handkeClick} className="logout">Log out</button>
+            <button onClick={handkeClick} className="logout">
+              Log out
+            </button>
           </div>
         )}
         {!user && (

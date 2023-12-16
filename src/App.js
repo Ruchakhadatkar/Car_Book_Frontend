@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import HomePage from "./pages/Home/HomePage";
 import SignupPage from "./pages/Signup/SignupPage";
 import LoginPage from "./pages/Login/LoginPage";
@@ -12,42 +12,34 @@ import BookingDetails from "./pages/BookingDetails/BookingDetailsPage";
 import BookingDetailsPage from "./pages/BookingDetails/BookingDetailsPage";
 
 function App() {
-  const { user, dispatch } = useAuthContext();
-  const ProtectedRoute = ({ element, path }) => {
-    console.log(user);
-    return user ? element : <Navigate to="/login" />;
+  const PrivateRoutes = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    let auth = { token: user ? true : false };
+    console.log(auth);
+    return auth.token ? <Outlet /> : <Navigate to="/login" />;
+  };
+
+  const PublicRoutes = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    let auth = { token: user ? true : false };
+    console.log(auth);
+    return !auth.token ? <Outlet /> : <Navigate to="/" />;
   };
 
   return (
     <div className="App">
       <Navbar />
-      <HomePage />
-      <BookingDetailsPage />
-      <ModelsPage />
-      {/* <ModelsInfoPage/> */}
       <Routes>
-        <Route
-          path="/login"
-          element={!user ? <LoginPage /> : <Navigate to="/" />}
-        />
-        <Route
-          path="/signup"
-          element={!user ? <SignupPage /> : <Navigate to="/" />}
-        />
-
-        {/* protected routes  */}
-        {/* <Route
-            path="/"
-            element={<ProtectedRoute element={<HomePage />} path="/" />}
-          />
-          <Route
-            path="/models"
-            element={<ProtectedRoute element={<ModelsPage />} path="/models" />}
-          /> */}
-        <Route
-          path="/models/:id"
-          element={ProtectedRoute(<ModelsInfoPage />)}
-        />
+        <Route element={<PrivateRoutes />}>
+          <Route element={<HomePage />} path="/" exact />
+          <Route element={<ModelsPage />} path="/models" />
+          <Route element={<ModelsInfoPage />} path="/models/:id" />
+          <Route element={<BookingDetailsPage/>} path="/bookingdetails" />
+        </Route>
+        <Route element={<PublicRoutes />}>
+          <Route element={<LoginPage />} path="/login" />
+          <Route element={<SignupPage />} path="/signup" />
+        </Route>
       </Routes>
       <Footer />
     </div>
