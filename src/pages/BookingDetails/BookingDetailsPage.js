@@ -22,7 +22,7 @@ const BookingDetailsPage = () => {
       }
 
       const response = await fetch(
-        `http://localhost:5000/api/bookingdetail/details/${user.userId}`,
+        `https://car-on-rent-bakendsevice.onrender.com/api/bookingdetail/details/${user.userId}`,
         {
           headers: {
             "Content-Type": "application/json",

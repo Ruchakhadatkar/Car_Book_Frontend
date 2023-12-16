@@ -1,11 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import "./SignupPage.css";
-import { FaFacebook } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
 import { useSignup } from "../../hooks/useSignup";
 import { useNavigate } from "react-router-dom";
-import google from "../../assets/google-icon.png";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -57,11 +54,6 @@ const SignupPage = () => {
         Sign up
       </button>
       {error && <div className="error">{error}</div>}
-      <p>OR</p>
-      <button className="google">
-        <img src={google} className="gooogle" />
-        <p className="signupwith">Sign up with google</p>
-      </button>
     </form>
   );
 };

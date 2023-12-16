@@ -30,7 +30,7 @@ const ModelsInfoPage = () => {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/api/cars/${id}`, {
+      const response = await fetch(`https://car-on-rent-bakendsevice.onrender.com/api/cars/${id}`, {
         headers: {
           authorization: `Bearer ${user.token}`,
         },
@@ -67,7 +67,7 @@ const ModelsInfoPage = () => {
       userId: user.userId,
     };
     console.log(data);
-    const response = await fetch("http://localhost:5000/api/bookingdetail", {
+    const response = await fetch("https://car-on-rent-bakendsevice.onrender.com/api/bookingdetail", {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
