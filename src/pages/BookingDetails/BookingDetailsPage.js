@@ -51,7 +51,7 @@ const BookingDetailsPage = () => {
       {bookingInfo.length == 0 && (
         <div>
           {" "}
-          <h2> No Cars Booked.</h2>
+          <h2 className="noCars"> No Cars Booked.</h2>
         </div>
       )}
       {bookingInfo.map((bookingInfo, i) => {
