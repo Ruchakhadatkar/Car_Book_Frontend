@@ -8,11 +8,11 @@ import carlogo from "../../assets/carlogo.png";
 const Navbar = () => {
   const { logout } = useLogout();
   const { user } = useAuthContext();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handkeClick = () => {
     logout();
-    navigate("/login")
+    navigate("/login");
   };
 
   return (
@@ -43,7 +43,9 @@ const Navbar = () => {
             >
               <li>Vehicle Models</li>
             </Link>
-            <li><a href="/#contact" style={{ textDecoration: "none", color: "black" }}>Contact</a></li>
+            <li >
+              <a href="/#contact">Contact</a>
+            </li>
             <Link
               to="/bookingdetails"
               style={{ textDecoration: "none", color: "black" }}
